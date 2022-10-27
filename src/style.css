@@ -1,28 +1,48 @@
 * {
     box-sizing: border-box;
     }
-    body {
+body {
     background-color: #A8E890;
     font-family: "Bodoni Moda", sans-serif;
     margin: 0;
     }
-    header {
-    background-color: #425F57;
+
+main {
     display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    height: 87vh;
+}
+
+
+header {
+    background-color: #425F57;
     }
-    h1{
-    color: #A8E890;
-    align-self: center;
-    margin-left: 2rem;
-    font-size: xxx-large;
-    }
-    h2{
+header h1{
         color: #A8E890;
-        align-self: end;
-        margin-left: 45rem;
-        font-size: small;
+        align-self: center;
+        margin-left: 2rem;
+        font-size: xxx-large;
+        display: inline;
     }
-    .search {
+
+header form {
+    display: inline;
+}
+
+
+
+header h2{
+    color: #A8E890;
+    display: inline;
+    font-size: small;
+    position: relative;
+    float: right;
+    right: 2em;
+    top: 7em;
+}
+
+.search {
         margin: 3rem;
         margin-left: 3rem;
         background-color: transparent;
@@ -33,10 +53,10 @@
         font-size: 1rem;
         padding: 0.5rem 1rem;
         }
-        .search::placeholder {
+.search::placeholder {
         color: #A8E890;
         }
-        .search:focus {
+.search:focus {
         background-color: #749F82;
         outline: none;
         }
@@ -44,9 +64,10 @@
         display: flex;
         flex-wrap: wrap;
         }
-    #sort {
+
+    
+#sort {
         margin: 3rem;
-        margin-left: 67rem;
         background-color: transparent;
         border-radius: 50px;
         color: #425F57;
@@ -57,9 +78,69 @@
     #sort:focus {
         background-color: #A8E890;
     }
-    #sortlabel {
+#sortlabel {
         color: #425F57;
         margin: 1rem;
-        margin-left: 45rem;
         font-family: Bodoni Moda, sans-serif;
     }
+
+
+
+
+
+#displayAndSort {
+    display: inline-block;
+    width: 80vw;
+    float: right;
+    height: 80%;
+}
+
+#displayAndSort h1{
+    display: inline-block;
+    position: relative;
+    top: 1em;
+    left: 2em;
+
+}
+
+
+
+#filterSection{
+    display: inline-block;
+    width: 20vw;
+    height: 100%;
+    background-color: #749F82;
+}
+
+.filterTitle{
+    display: block;
+    position: relative;
+    text-align: center;
+}
+
+.filterFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 60vh;
+    position: relative;
+    top: 3em;
+}
+.filterBoxBorder {
+    border: #425F57 solid 5px;
+    border-radius: 30px;
+    width: 10em;
+    height: 10em;
+    text-align: center;
+}
+
+
+
+
+
+
+#sortBy {
+    display: inline-block;
+    float: right;
+}
