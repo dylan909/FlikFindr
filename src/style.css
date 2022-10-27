@@ -92,15 +92,16 @@ header h2{
     display: inline-block;
     width: 80vw;
     float: right;
-    height: 80%;
+    height: 90%;
+    overflow: scroll;
+
 }
 
-#displayAndSort h1{
+#displayAndSortH1{
     display: inline-block;
     position: relative;
     top: 1em;
     left: 2em;
-
 }
 
 
@@ -130,7 +131,7 @@ header h2{
 .filterBoxBorder {
     border: #425F57 solid 5px;
     border-radius: 30px;
-    width: 10em;
+    width: 15em;
     height: 10em;
     text-align: center;
 }
@@ -143,4 +144,31 @@ header h2{
 #sortBy {
     display: inline-block;
     float: right;
+}
+
+
+.cardSection {
+    display: flex;
+    width: inherit;
+    margin: 3em;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+    background-color: #425F57;
+    border: #425F57 solid 2em;
+    align-items: center;
+}
+
+.fixedResultsBar {
+    height: 5em;
+    position: fixed;
+    width: inherit;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: space-between;
 }
