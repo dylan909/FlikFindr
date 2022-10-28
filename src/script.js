@@ -92,21 +92,29 @@ function movieDataGenerator(data){
     let poster = document.createElement('img')
     let title = document.createElement('h1')
     let description = document.createElement('p')
+    let genre = document.createElement('p')
     let button = document.createElement('button')
 
+    const genres = []
+
+    for(i=0;i<data.genres.length;i++){
+        console.log(data.genres[i].name)
+        genres.push(data.genres[i].name)
+    }
+
     moreInfo.classList.add('movieInfoContainer')
+    title.classList.add('titleExtraInfo')
+    description.classList.add('descriptionExtraInfo')
+    genre.innerHTML = genres.toString()
+    button.classList.add('buttonExtraInfo')
 
     poster.setAttribute('src', `https://image.tmdb.org/t/p/w200/${data.poster_path}`)
     title.innerHTML = data.original_title
-    description.innerHTML = data.overview
+    description.innerHTML = data.overview 
     button.innerHTML = 'click to get back to other movies'
 
-    console.log(title)
 
-    moreInfo.append(title, poster, description, button)
-
-    console.log(moreInfo)
-    console.log(removeableSection)
+    moreInfo.append(title, poster, description, genre, button)
 
     removeableSection.append(moreInfo)
 
@@ -115,3 +123,4 @@ function movieDataGenerator(data){
         moreInfo.style.display = 'none'
     })
 }
+
