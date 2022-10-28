@@ -38,7 +38,6 @@ function makingCards(data){
 
     div.classList.add(`classList${data.id}`)
     div.classList.add("card")
-    div.classList.add(`${data.adult}`)
 
     title.innerHTML = data.original_title
 
