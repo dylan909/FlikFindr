@@ -3,7 +3,7 @@
     }
 body {
     background-color: #A8E890;
-    font-family: "Bodoni Moda", sans-serif;
+    font-family: "Bodoni Moda", serif;
     margin: 0;
     }
 
@@ -149,10 +149,11 @@ header h2{
 
 .cardSection {
     display: flex;
-    width: inherit;
+    width: 100%;
     margin: 3em;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 5em;
 }
 
 .card {
@@ -162,6 +163,11 @@ header h2{
     background-color: #425F57;
     border: #425F57 solid 2em;
     align-items: center;
+    border-radius: 2em;
+}
+
+.card:hover{
+    cursor: pointer;
 }
 
 .fixedResultsBar {
@@ -171,4 +177,14 @@ header h2{
     background-color: cadetblue;
     display: flex;
     justify-content: space-between;
+}
+
+
+.movieInfoContainer{
+    margin-top: 5em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }

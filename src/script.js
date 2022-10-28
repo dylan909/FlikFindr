@@ -2,21 +2,29 @@
 const cardEntry = document.querySelector('.cardSection')
 const hitsPerPage = document.querySelector('#sort') 
 const cardSelection = document.querySelector(".cardSection")
+const removeableSection = document.querySelector('.removeableSection')
 
 async function fetchAMovie(pages){
     try{
         const responce = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=17053cd19c5a7b4aa0ca53a9b1d6da35&page=${pages}`)
         const data = await responce.json()
-        //let img = fetchMoviePoster(data.poster_path)
         data.results.forEach(element => {
             makingCards(element)
         });
-        console.log(data)
-        //makingCards(data)
     }catch(e){
         return `${e}`
     }
 }
+
+async function movieInfo(movieId){
+    try{
+        const responce = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=17053cd19c5a7b4aa0ca53a9b1d6da35`)
+        const data = await responce.json()
+        movieDataGenerator(data)
+        }catch(e){
+            console.log(e)
+        }
+    }
 
 
 function makingCards(data){
@@ -30,12 +38,17 @@ function makingCards(data){
 
     div.classList.add(`classList${data.id}`)
     div.classList.add("card")
+    div.classList.add(`${data.adult}`)
 
     title.innerHTML = data.original_title
 
     div.append(img, title)
 
     cardEntry.append(div)
+
+    document.querySelector(`.classList${data.id}`).addEventListener('click', (e) => {
+        callForMovieData(data.id)
+    })
 
 }
 
@@ -62,3 +75,43 @@ hitsPerPage.addEventListener('input', (event) => {
     generateItemsReturned(event.target.value)
 })
 
+
+function callForMovieData(movieId){
+    movieInfo(movieId)
+}
+
+function movieDataGenerator(data){
+    console.log(data)
+
+
+    cardSelection.style.display = 'none'
+
+
+    //create the elements in the page
+    let moreInfo = document.createElement('article')
+    let poster = document.createElement('img')
+    let title = document.createElement('h1')
+    let description = document.createElement('p')
+    let button = document.createElement('button')
+
+    moreInfo.classList.add('movieInfoContainer')
+
+    poster.setAttribute('src', `https://image.tmdb.org/t/p/w200/${data.poster_path}`)
+    title.innerHTML = data.original_title
+    description.innerHTML = data.overview
+    button.innerHTML = 'click to get back to other movies'
+
+    console.log(title)
+
+    moreInfo.append(title, poster, description, button)
+
+    console.log(moreInfo)
+    console.log(removeableSection)
+
+    removeableSection.append(moreInfo)
+
+    button.addEventListener('click', () => {
+        cardSelection.style.display = 'flex'
+        moreInfo.style.display = 'none'
+    })
+}
