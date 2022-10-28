@@ -188,3 +188,45 @@ header h2{
     align-items: center;
     text-align: center;
 }
+
+@media screen and (max-width: 480px) {
+    #filterSection{
+        display: none;
+    }
+    .fixedResultsBar {
+        height: 5em;
+        width: 100vw;
+        background-color: cadetblue;
+        display: flex;
+        align-items: center;
+        padding-left: 3em;
+        position: absolute;
+    }
+
+    .cardSection {
+        position: absolute;
+    }
+    #sort {
+        margin: 0rem;
+        background-color: transparent;
+        border-radius: 50px;
+        color: #425F57;
+        font-family: Bodoni Moda, sans-serif;
+        font-size: 1rem;
+        padding: 0.05rem 0.5rem;
+    }
+    #displayAndSortH1 {
+        position: relative;
+        top: 1em;
+        left: 2em;
+        display: none;
+    }
+    header {
+        height: 7em;
+        display: flex;
+        flex-direction: column;
+    }
+    .search{
+        display: none;
+    }
+}
